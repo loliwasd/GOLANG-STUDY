@@ -1,5 +1,7 @@
 package math
 
+import "errors"
+
 // Add returns an integer sum of two integer numbers
 func Add(a, b int) int {
 	return a + b
@@ -17,4 +19,11 @@ func Max(a, b int) int {
 	}
 
 	return b
+}
+
+func Div(a, b int) (int, error) {
+	if b != 0 {
+		return a / b, nil
+	}
+	return 0, errors.New("Division by zero")
 }
