@@ -21,9 +21,10 @@ func Max(a, b int) int {
 	return b
 }
 
+// Div returns division of two integer numbers, and an error if second number is zero
 func Div(a, b int) (int, error) {
-	if b != 0 {
-		return a / b, nil
+	if b == 0 {
+		return 0, errors.New("division by zero")
 	}
-	return 0, errors.New("Division by zero")
+	return a / b, nil
 }

@@ -70,3 +70,36 @@ func TestMax(t *testing.T) {
 		t.Errorf("Max(0, 0) = %d, want %d", got, want)
 	}
 }
+
+func TestDiv(t *testing.T) {
+	testCases := []struct {
+		name    string
+		a       int
+		b       int
+		want    int
+		wanterr bool
+	}{
+		{"1 by 1", 1, 1, 1, false},
+		{"5 by 2", 5, 2, 2, false},
+		{"div by 0", 1, 0, 0, true},
+	}
+
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			got, err := Div(tc.a, tc.b)
+			//if got, wanterr != tc.want, tc.wanterr {
+			if tc.wanterr {
+				if err == nil {
+					t.Fatalf("Div(%d, %d): expected error, got nil", tc.a, tc.b)
+				}
+				return
+			}
+			if err != nil {
+				t.Fatalf("Div(%d, %d): unexpected error: %v", tc.a, tc.b, err)
+			}
+			if got != tc.want {
+				t.Errorf("Div(%d, %d) = %d, want %d", tc.a, tc.b, got, tc.want)
+			}
+		})
+	}
+}
