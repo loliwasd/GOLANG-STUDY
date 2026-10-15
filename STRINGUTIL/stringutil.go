@@ -1,26 +1,22 @@
 package stringutil
 
+// Reverse inverses rines of a given string, returning reversed string
 func Reverse(s string) string {
 
-	_s := []rune(s)
+	reversed := []rune(s)
 
-	var new_s []rune = make([]rune, len(_s))
-
-	for i, sr := range _s {
-		new_s[len(_s)-i-1] = sr
+	for i, j := 0, len(reversed)-1; i < j; i, j = i+1, j-1 {
+		reversed[i], reversed[j] = reversed[j], reversed[i]
 	}
 
-	return string(new_s)
+	return string(reversed)
 }
 
+// CountRunes returns number of runes in a given string
 func CountRunes(s string) int {
-	var count int
-
-	_s := []rune(s)
-
-	for range _s {
-		count += 1
+	count := 0
+	for range s {
+		count++
 	}
-
 	return count
 }
