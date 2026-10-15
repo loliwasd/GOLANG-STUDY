@@ -1,6 +1,6 @@
 package stringutil
 
-// Reverse inverses rines of a given string, returning reversed string
+// Reverse reverses runes of a given string, returning reversed string
 func Reverse(s string) string {
 
 	reversed := []rune(s)

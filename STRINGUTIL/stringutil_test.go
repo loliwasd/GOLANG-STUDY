@@ -17,7 +17,7 @@ func TestReverse(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			got := Reverse(tc.s)
 			if got != tc.want {
-				t.Errorf("Reverse(%q) = %s, want %s; Additional info hex values = %x   %x", tc.s, got, tc.want, got, tc.want)
+				t.Errorf("Reverse(%q) = %s, want %s", tc.s, got, tc.want)
 			}
 		})
 	}
@@ -35,7 +35,7 @@ func TestCountRunes(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
-		t.Run(tc.s, func(t *testing.T) {
+		t.Run(tc.name, func(t *testing.T) {
 			got := CountRunes(tc.s)
 			if got != tc.want {
 				t.Errorf("CountRunes(%q) = %d, want %d", tc.s, got, tc.want)
